@@ -91,9 +91,12 @@ Then:
 > rehearses both audiences. The learning system is also panel prep.
 
 ### 8. LOG
-Claude updates `PROGRESS.md`:
+Claude updates `PROGRESS.md` and the per-lesson concept note:
 - Append a retro entry (use the template): what built, what clicked, what was hard,
   revisit items, "can I say the talking point confidently? y/n".
+- Append the high-level concept teach as a per-lesson file under
+  `docs/lab-school/modules/module-N/lesson-N.M-<slug>.md` (plain-English explanation + a
+  talking point), so the concepts are reviewable later.
 - Update the **Current Position** pointer.
 - Update the **Revisit Queue** (add new shaky items; remove ones that are now solid).
 - Flip the module/lesson status in the status table.
