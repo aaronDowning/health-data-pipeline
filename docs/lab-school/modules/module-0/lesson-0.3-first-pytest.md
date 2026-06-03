@@ -16,6 +16,6 @@ Probing an edge case (a name with a digit) showed that `str.title()` capitalizes
 any non-letter, so "Aar0n" becomes "Aar0N". The same issue hits apostrophes. Naive name cleaning
 corrupts real data. Logged to BACKLOG for a robust transform in Module 1.
 
-## Talking point
+## Why it matters
 "I write pytest with plain asserts and convention based discovery, and my QA instinct catches
 data-corrupting edge cases early, like title-casing breaking names that contain digits or apostrophes."

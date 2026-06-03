@@ -11,6 +11,6 @@ is the `package.json` equivalent: the recipe of what to install. You commit the 
 cooked meal, which is why `.venv/` is gitignored but `requirements.txt` is tracked. Same instinct as
 never committing `node_modules`.
 
-## Talking point
+## Why it matters
 "Each project gets an isolated venv with a pinned requirements file, so it installs the same way on
 my machine and in CI."

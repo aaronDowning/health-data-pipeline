@@ -11,5 +11,5 @@ so "the code" becomes `src/` plus `tests/`. A `.gitignore` keeps junk, secrets, 
 healthcare) data out of git history. Ignoring `data/` is a HIPAA guardrail: never let patient data
 into a repo.
 
-## Talking point
+## Why it matters
 "I scaffolded the repo with clean structure and a HIPAA safe gitignore from commit one."

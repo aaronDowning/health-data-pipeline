@@ -12,5 +12,5 @@ project venv on it. (3.12 rather than the newest release, because PySpark and so
 the latest Python by a version.) There is also no bare `python` or `pip` command globally, and that
 is fine: those live inside the activated venv.
 
-## Talking point
+## Why it matters
 "I run projects on a Homebrew managed Python, never the macOS system Python, and pin the version per project."
