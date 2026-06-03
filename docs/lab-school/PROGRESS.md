@@ -17,9 +17,9 @@ The session protocol updates this file after every lesson. Three live sections d
 > Where we resume next session. Updated at the LOG step every time.
 
 - **Module:** 0 — Project setup & CI skeleton
-- **Lesson:** 0.3 — First pytest (not yet started)
-- **Stopped at:** 0.2 complete — venv rebuilt on Homebrew Python 3.12, pytest installed, requirements.txt pinned via pip freeze. Also fixed the foundation: installed a real Python via Homebrew instead of relying on Apple's system 3.9.
-- **Next up:** Lesson 0.3 — write and run the first pytest, green locally.
+- **Lesson:** 0.4 — GitHub Actions: lint+test (not yet started)
+- **Stopped at:** 0.3 complete — first pytest green locally (1 passed). Wrote src/transforms.py (clean_name), pytest.ini, tests/test_1.py. Found and logged a clean_name `.title()` limitation to BACKLOG.
+- **Next up:** Lesson 0.4 — wire pytest into GitHub Actions so CI runs green on every push.
 
 ---
 
@@ -36,7 +36,7 @@ _(empty — nothing learned yet)_
 
 | Module | Title | Status | Date done |
 |---|---|---|---|
-| 0 | Project setup & CI skeleton | 🟡 In progress (0.1, 0.2 ✅) | — |
+| 0 | Project setup & CI skeleton | 🟡 In progress (0.1, 0.2, 0.3 ✅) | — |
 | 1 | Python ETL fundamentals | ⬜ Not started | — |
 | 2 | Postgres warehouse + SQL depth | ⬜ Not started | — |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | ⬜ Not started | — |
@@ -88,3 +88,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Done · 🔁 Needs revisi
 - **Revisit later (→ Revisit Queue):** none
 - **Talking point — can I say it confidently? (y/n):** y — "Each project gets an isolated venv with a pinned requirements file, so it installs identically on my machine and in CI."
 - **Next step:** 0.3 — first pytest.
+
+### Module 0 · Lesson 0.3 — First pytest
+- **Date(s):** 2026-06-03
+- **What we built:** `src/transforms.py` (clean_name), `pytest.ini` (pythonpath=src, testpaths=tests), and the first test `tests/test_1.py`. Result: 1 passed, green.
+- **What clicked / went well:** Home field. Grasped the deltas from JS runners instantly (bare assert, convention discovery, no describe/it). Wrote an edge-case test unprompted and surfaced a real bug in clean_name via `.title()`.
+- **What was hard / confusing:** Nothing conceptual. The failing test was a genuine code limitation, not a misunderstanding.
+- **Gate result:** engineer-explain ✓ · stakeholder-explain ✓ (demonstrated by debugging the failing assert and reading pytest's diff)
+- **Revisit later (→ Revisit Queue):** none (concept solid). Code finding logged to BACKLOG, not the queue.
+- **Talking point — can I say it confidently? (y/n):** y — "I write pytest with plain asserts and convention discovery, and I catch data-corrupting edge cases early."
+- **Next step:** 0.4 — wire pytest into GitHub Actions (CI green on push).

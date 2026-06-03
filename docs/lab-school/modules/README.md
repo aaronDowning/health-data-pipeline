@@ -7,3 +7,4 @@ explanation and a talking point, captured for review.
 * Lesson 0.0: A real Python (not the system one)
 * Lesson 0.1: Project structure
 * Lesson 0.2: Virtual environments and dependencies
+* Lesson 0.3: First pytest
