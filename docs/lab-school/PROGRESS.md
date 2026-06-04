@@ -15,10 +15,10 @@ Current Position (cold resume), Revisit Queue (spaced repetition), and Entries (
 
 > Where we resume next session. Updated at the LOG step every time.
 
-* Module: 0, Project setup and CI skeleton
-* Lesson: 0.5, docker-compose skeleton (not yet started)
-* Stopped at: 0.4 complete. CI workflow added (.github/workflows/ci.yml); first run passed green in 17 seconds on GitHub Actions.
-* Next up: Lesson 0.5, stand up an empty docker-compose on the homelab host.
+* Module: 1, Python ETL fundamentals
+* Lesson: 1.3, Transform clean (not yet started)
+* Stopped at: 1.2 complete. Wrote src/extract.py (read_json) and a synthetic, messy sample_data/patients.json; verified it reads 3 records into a list of dicts. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
+* Next up: Lesson 1.3, the first transform: clean the raw rows (trim whitespace, fix casing, handle nulls).
 
 ## Revisit Queue (spaced repetition)
 
@@ -31,8 +31,8 @@ Empty.
 
 | Module | Title | Status | Date done |
 |---|---|---|---|
-| 0 | Project setup and CI skeleton | In progress (0.1, 0.2, 0.3, 0.4 done) |  |
-| 1 | Python ETL fundamentals | Not started |  |
+| 0 | Project setup and CI skeleton | 0.1 to 0.4 done; 0.5 deferred to Module 2 |  |
+| 1 | Python ETL fundamentals | In progress (1.1, 1.2 done) |  |
 | 2 | Postgres warehouse and SQL depth | Not started |  |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | Not started |  |
 | 3.5 | NoSQL document store (MongoDB) | Not started |  |
@@ -99,3 +99,23 @@ Status key: Not started, In progress, Done, Needs revisit.
 * Revisit later: none.
 * Key takeaway: "My repo has CI gating from the first commit: every push runs the tests on a clean runner, a failing check blocks the change."
 * Next step: 0.5, docker-compose skeleton.
+
+### Module 1 · Lesson 1.1: The ETL model
+* Date(s): 2026-06-04
+* What we built: no code; a concept lesson. Mapped the planned pipeline to E, T, L (reading FHIR is Extract, flattening and de identifying is Transform, writing to Postgres is Load).
+* What clicked / went well: mapped all three correctly on the first try, and identified Transform as the highest code and risk stage with a sharp QA framing: changing data is where it can be mutated incorrectly.
+* What was hard / confusing: nothing.
+* Gate result: engineer explain pass, stakeholder explain pass.
+* Revisit later: none.
+* Key takeaway: "ETL is extract, transform, load; the transform stage holds the most code and risk, and a QA mindset there keeps the pipeline trustworthy."
+* Next step: 1.2, Extract.
+
+### Module 1 · Lesson 1.2: Extract
+* Date(s): 2026-06-04
+* What we built: `src/extract.py` with `read_json(path)`, plus a synthetic, deliberately messy `sample_data/patients.json`. Verified it reads 3 patient records into a list of dicts.
+* What clicked / went well: clear on extract's single job and why isolation matters; mapped it to the page object and API client pattern from QA.
+* What was hard / confusing: nothing; done under time pressure, so the tutor wrote the code and I reviewed it.
+* Gate result: concept understood; explain back kept light due to time.
+* Revisit later: none.
+* Key takeaway: "Extraction is isolated on purpose: pull raw data into memory, so a source change touches only one step."
+* Next step: 1.3, Transform clean.

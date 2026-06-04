@@ -9,3 +9,7 @@ explanation and a key takeaway, captured for review.
 * Lesson 0.2: Virtual environments and dependencies
 * Lesson 0.3: First pytest
 * Lesson 0.4: Continuous integration with GitHub Actions
+
+## Module 1: Python ETL fundamentals
+* Lesson 1.1: The ETL model
+* Lesson 1.2: Extract

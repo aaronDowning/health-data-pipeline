@@ -1,0 +1,5 @@
+[
+  { "id": "p001", "first_name": "  john ", "last_name": "SMITH", "birth_date": "1980-04-12", "ssn": "111-22-3333" },
+  { "id": "p002", "first_name": "maria", "last_name": "garcia", "birth_date": "1992-11-03", "ssn": "444-55-6666" },
+  { "id": "p003", "first_name": "  Aar0n", "last_name": "badger", "birth_date": "1975-07-21", "ssn": "777-88-9999" }
+]
