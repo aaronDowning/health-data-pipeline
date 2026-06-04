@@ -16,9 +16,9 @@ Current Position (cold resume), Revisit Queue (spaced repetition), and Entries (
 > Where we resume next session. Updated at the LOG step every time.
 
 * Module: 0, Project setup and CI skeleton
-* Lesson: 0.4, GitHub Actions lint + test (not yet started)
-* Stopped at: 0.3 complete. First pytest green locally (1 passed). Wrote src/transforms.py (clean_name), pytest.ini, tests/test_1.py. Found and logged a clean_name title casing limitation to BACKLOG.
-* Next up: Lesson 0.4, wire pytest into GitHub Actions so CI runs green on every push.
+* Lesson: 0.5, docker-compose skeleton (not yet started)
+* Stopped at: 0.4 complete. CI workflow added (.github/workflows/ci.yml); first run passed green in 17 seconds on GitHub Actions.
+* Next up: Lesson 0.5, stand up an empty docker-compose on the homelab host.
 
 ## Revisit Queue (spaced repetition)
 
@@ -31,7 +31,7 @@ Empty.
 
 | Module | Title | Status | Date done |
 |---|---|---|---|
-| 0 | Project setup and CI skeleton | In progress (0.1, 0.2, 0.3 done) |  |
+| 0 | Project setup and CI skeleton | In progress (0.1, 0.2, 0.3, 0.4 done) |  |
 | 1 | Python ETL fundamentals | Not started |  |
 | 2 | Postgres warehouse and SQL depth | Not started |  |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | Not started |  |
@@ -89,3 +89,13 @@ Status key: Not started, In progress, Done, Needs revisit.
 * Revisit later: none. Code finding logged to BACKLOG, not the queue.
 * Key takeaway: "I write pytest with plain asserts and convention discovery, and I catch data corrupting edge cases early."
 * Next step: 0.4, wire pytest into GitHub Actions.
+
+### Module 0 · Lesson 0.4: GitHub Actions CI
+* Date(s): 2026-06-04
+* What we built: `.github/workflows/ci.yml`. Runs on push and pull request, sets up Python 3.12, installs the pinned requirements, runs pytest on a clean runner. First run completed green in 17 seconds.
+* What clicked / went well: home field. Predicted the behavior correctly. The only new piece was the GitHub Actions UI tab and the Python flavor of the steps (setup-python, pip install, pytest) versus the JS equivalents.
+* What was hard / confusing: nothing; CI is a core strength.
+* Gate result: engineer explain pass, stakeholder explain pass.
+* Revisit later: none.
+* Key takeaway: "My repo has CI gating from the first commit: every push runs the tests on a clean runner, a failing check blocks the change."
+* Next step: 0.5, docker-compose skeleton.

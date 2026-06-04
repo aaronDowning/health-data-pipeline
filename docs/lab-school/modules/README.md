@@ -8,3 +8,4 @@ explanation and a key takeaway, captured for review.
 * Lesson 0.1: Project structure
 * Lesson 0.2: Virtual environments and dependencies
 * Lesson 0.3: First pytest
+* Lesson 0.4: Continuous integration with GitHub Actions
