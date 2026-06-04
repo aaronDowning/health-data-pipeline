@@ -16,9 +16,9 @@ Current Position (cold resume), Revisit Queue (spaced repetition), and Entries (
 > Where we resume next session. Updated at the LOG step every time.
 
 * Module: 1, Python ETL fundamentals
-* Lesson: 1.5, Load (not yet started)
-* Stopped at: 1.4 complete. Wrote src/deidentify.py (mask_ssn, to_birth_year, de_identify) and tests/test_deidentify.py; full suite 8 passing. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
-* Next up: Lesson 1.5, the Load step: write the cleaned, de identified rows to a file or DB target.
+* Lesson: 1.6, Test and harden (not yet started)
+* Stopped at: 1.5 complete. Wrote src/load.py (write_json, replace = idempotent) and src/pipeline.py (run wires E, T, L) and tests/test_pipeline.py; suite 10 passing. Live run produced clean, de identified output. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
+* Next up: Lesson 1.6, harden the pipeline with edge case tests and logging; finishes Module 1.
 
 ## Revisit Queue (spaced repetition)
 
@@ -32,7 +32,7 @@ Empty.
 | Module | Title | Status | Date done |
 |---|---|---|---|
 | 0 | Project setup and CI skeleton | 0.1 to 0.4 done; 0.5 deferred to Module 2 |  |
-| 1 | Python ETL fundamentals | In progress (1.1 to 1.4 done) |  |
+| 1 | Python ETL fundamentals | In progress (1.1 to 1.5 done) |  |
 | 2 | Postgres warehouse and SQL depth | Not started |  |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | Not started |  |
 | 3.5 | NoSQL document store (MongoDB) | Not started |  |
@@ -139,3 +139,13 @@ Status key: Not started, In progress, Done, Needs revisit.
 * Revisit later: none.
 * Key takeaway: "De identification runs in transform, before load, masking direct identifiers and generalizing dates on a copy so PHI never lands downstream."
 * Next step: 1.5, Load.
+
+### Module 1 · Lesson 1.5: Load (end to end pipeline)
+* Date(s): 2026-06-04
+* What we built: src/load.py (write_json, replace makes it idempotent), src/pipeline.py (run chains extract, transform, de identify, load), tests/test_pipeline.py (end to end plus idempotency). Added output/ to gitignore. Suite 10 passing. Live run turned the messy sample into clean, de identified output, with the Aar0n digit name preserved.
+* What clicked / went well: the full E to T to L flow runs in one function and is idempotent (replace, not append). Seeing raw messy input become clean, masked output end to end.
+* What was hard / confusing: nothing; done under time pressure, tutor wrote the code and I reviewed it.
+* Gate result: concept understood; explain back kept light due to time.
+* Revisit later: none.
+* Key takeaway: "A replace based load makes the pipeline idempotent; run() chains E, T, L into one reproducible flow."
+* Next step: 1.6, test and harden to finish Module 1.

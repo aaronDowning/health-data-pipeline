@@ -12,6 +12,7 @@ venv/
 
 # Data (never commit real or large data)
 data/
+output/
 *.csv
 *.parquet
 

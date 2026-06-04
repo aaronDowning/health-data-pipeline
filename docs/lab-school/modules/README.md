@@ -15,3 +15,4 @@ explanation and a key takeaway, captured for review.
 * Lesson 1.2: Extract
 * Lesson 1.3: Transform, clean
 * Lesson 1.4: Transform, de identify
+* Lesson 1.5: Load (end to end pipeline)
