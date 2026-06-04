@@ -13,3 +13,4 @@ explanation and a key takeaway, captured for review.
 ## Module 1: Python ETL fundamentals
 * Lesson 1.1: The ETL model
 * Lesson 1.2: Extract
+* Lesson 1.3: Transform, clean

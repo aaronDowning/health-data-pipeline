@@ -16,9 +16,9 @@ Current Position (cold resume), Revisit Queue (spaced repetition), and Entries (
 > Where we resume next session. Updated at the LOG step every time.
 
 * Module: 1, Python ETL fundamentals
-* Lesson: 1.3, Transform clean (not yet started)
-* Stopped at: 1.2 complete. Wrote src/extract.py (read_json) and a synthetic, messy sample_data/patients.json; verified it reads 3 records into a list of dicts. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
-* Next up: Lesson 1.3, the first transform: clean the raw rows (trim whitespace, fix casing, handle nulls).
+* Lesson: 1.4, Transform de identify (not yet started)
+* Stopped at: 1.3 complete. Wrote src/transform.py (clean_name, clean_record, clean_records) and tests/test_transform.py (4 passing). Resolved the clean_name title casing backlog item and removed the 0.3 throwaway. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
+* Next up: Lesson 1.4, mask PHI (SSN, names) before load; the de identification step.
 
 ## Revisit Queue (spaced repetition)
 
@@ -32,7 +32,7 @@ Empty.
 | Module | Title | Status | Date done |
 |---|---|---|---|
 | 0 | Project setup and CI skeleton | 0.1 to 0.4 done; 0.5 deferred to Module 2 |  |
-| 1 | Python ETL fundamentals | In progress (1.1, 1.2 done) |  |
+| 1 | Python ETL fundamentals | In progress (1.1, 1.2, 1.3 done) |  |
 | 2 | Postgres warehouse and SQL depth | Not started |  |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | Not started |  |
 | 3.5 | NoSQL document store (MongoDB) | Not started |  |
@@ -119,3 +119,13 @@ Status key: Not started, In progress, Done, Needs revisit.
 * Revisit later: none.
 * Key takeaway: "Extraction is isolated on purpose: pull raw data into memory, so a source change touches only one step."
 * Next step: 1.3, Transform clean.
+
+### Module 1 · Lesson 1.3: Transform, clean
+* Date(s): 2026-06-04
+* What we built: `src/transform.py` (clean_name, clean_record, clean_records) and `tests/test_transform.py` (4 tests, green). Removed the 0.3 throwaway transforms.py and test_1.py. Resolved the clean_name title casing backlog item.
+* What clicked / went well: the 0.3 bug is fixed for real; per word capitalize() does not treat digits as word boundaries, so Aar0n is preserved. Clean before dedupe; clean on a copy, not in place.
+* What was hard / confusing: nothing; done under time pressure, tutor wrote the code and I reviewed it.
+* Gate result: concept understood; explain back kept light due to time.
+* Revisit later: apostrophe and hyphen name casing (O'Brien, Mary-Jane) is a lighter known limitation, noted in BACKLOG.
+* Key takeaway: "Cleaning fixes casing without corrupting edge cases, handles nulls, and dedupes, on a copy, with tests proving each rule."
+* Next step: 1.4, Transform de identify.
