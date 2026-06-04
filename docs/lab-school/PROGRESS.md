@@ -16,9 +16,9 @@ Current Position (cold resume), Revisit Queue (spaced repetition), and Entries (
 > Where we resume next session. Updated at the LOG step every time.
 
 * Module: 1, Python ETL fundamentals
-* Lesson: 1.4, Transform de identify (not yet started)
-* Stopped at: 1.3 complete. Wrote src/transform.py (clean_name, clean_record, clean_records) and tests/test_transform.py (4 passing). Resolved the clean_name title casing backlog item and removed the 0.3 throwaway. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
-* Next up: Lesson 1.4, mask PHI (SSN, names) before load; the de identification step.
+* Lesson: 1.5, Load (not yet started)
+* Stopped at: 1.4 complete. Wrote src/deidentify.py (mask_ssn, to_birth_year, de_identify) and tests/test_deidentify.py; full suite 8 passing. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
+* Next up: Lesson 1.5, the Load step: write the cleaned, de identified rows to a file or DB target.
 
 ## Revisit Queue (spaced repetition)
 
@@ -32,7 +32,7 @@ Empty.
 | Module | Title | Status | Date done |
 |---|---|---|---|
 | 0 | Project setup and CI skeleton | 0.1 to 0.4 done; 0.5 deferred to Module 2 |  |
-| 1 | Python ETL fundamentals | In progress (1.1, 1.2, 1.3 done) |  |
+| 1 | Python ETL fundamentals | In progress (1.1 to 1.4 done) |  |
 | 2 | Postgres warehouse and SQL depth | Not started |  |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | Not started |  |
 | 3.5 | NoSQL document store (MongoDB) | Not started |  |
@@ -129,3 +129,13 @@ Status key: Not started, In progress, Done, Needs revisit.
 * Revisit later: apostrophe and hyphen name casing (O'Brien, Mary-Jane) is a lighter known limitation, noted in BACKLOG.
 * Key takeaway: "Cleaning fixes casing without corrupting edge cases, handles nulls, and dedupes, on a copy, with tests proving each rule."
 * Next step: 1.4, Transform de identify.
+
+### Module 1 · Lesson 1.4: Transform, de identify
+* Date(s): 2026-06-04
+* What we built: `src/deidentify.py` (mask_ssn, to_birth_year, de_identify) and `tests/test_deidentify.py` (4 tests). Full suite 8 passing.
+* What clicked / went well: direct mapping to Chartspan HIPAA de id work. Two Safe Harbor techniques in code, masking and date generalization. De id runs before load so PHI never reaches the destination.
+* What was hard / confusing: nothing; done under time pressure, tutor wrote the code and I reviewed it.
+* Gate result: concept understood; explain back kept light due to time.
+* Revisit later: none.
+* Key takeaway: "De identification runs in transform, before load, masking direct identifiers and generalizing dates on a copy so PHI never lands downstream."
+* Next step: 1.5, Load.
