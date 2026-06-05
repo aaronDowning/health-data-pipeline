@@ -1,8 +1,6 @@
 # health-data-pipeline
 
 An end to end, orchestrated, CI/CD deployed healthcare data pipeline built on synthetic FHIR data.
-A working miniature of a modern health data platform, built to learn the stack deeply rather than
-just run it.
 
 ## What this is
 This project ingests synthetic FHIR data (Synthea), lands it raw in a document store, cleans and

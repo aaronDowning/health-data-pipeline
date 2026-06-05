@@ -1,5 +1,91 @@
 [
-  { "id": "p001", "first_name": "  john ", "last_name": "SMITH", "birth_date": "1980-04-12", "ssn": "111-22-3333" },
-  { "id": "p002", "first_name": "maria", "last_name": "garcia", "birth_date": "1992-11-03", "ssn": "444-55-6666" },
-  { "id": "p003", "first_name": "  Aar0n", "last_name": "badger", "birth_date": "1975-07-21", "ssn": "777-88-9999" }
+  {
+    "id": "p001",
+    "first_name": "  john ",
+    "last_name": "SMITH",
+    "birth_date": "1980-04-12",
+    "ssn": "111-22-3333",
+    "_note": "whitespace and casing problems"
+  },
+  {
+    "id": "p002",
+    "first_name": "maria",
+    "last_name": "garcia",
+    "birth_date": "1992-11-03",
+    "ssn": "444-55-6666",
+    "_note": "lowercase names"
+  },
+  {
+    "id": "p003",
+    "first_name": "  Aar0n",
+    "last_name": "badger",
+    "birth_date": "1975-07-21",
+    "ssn": "777-88-9999",
+    "_note": "digit in name: title() bug would make Aar0N, capitalize() preserves Aar0n"
+  },
+  {
+    "id": "p001",
+    "first_name": "Jonathan",
+    "last_name": "Smith",
+    "birth_date": "1980-04-12",
+    "ssn": "111-22-3333",
+    "_note": "duplicate id: this record should be dropped, first occurrence wins"
+  },
+  {
+    "id": "p004",
+    "first_name": null,
+    "last_name": "Jones",
+    "birth_date": "1988-03-15",
+    "ssn": "222-33-4444",
+    "_note": "null first_name: should become empty string, not crash"
+  },
+  {
+    "id": "p005",
+    "first_name": "Elena",
+    "last_name": "Rodriguez",
+    "birth_date": "2001-09-22",
+    "ssn": null,
+    "_note": "null ssn: mask should return empty string, not crash"
+  },
+  {
+    "id": "p006",
+    "first_name": "Marcus",
+    "last_name": "Chen",
+    "birth_date": null,
+    "ssn": "333-44-5555",
+    "_note": "null birth_date: birth_year should return empty string, not crash"
+  },
+  {
+    "id": "p007",
+    "first_name": "   ",
+    "last_name": "Patel",
+    "birth_date": "1965-12-01",
+    "ssn": "555-66-7777",
+    "_note": "whitespace-only name: split() returns [] so result is empty string"
+  },
+  {
+    "id": "p008",
+    "first_name": "Siobhan",
+    "last_name": "O'Brien",
+    "birth_date": "1978-06-30",
+    "ssn": "666-77-8888",
+    "_note": "apostrophe name: known limitation, O'Brien capitalizes as O'Brien not O'Brien"
+  },
+  {
+    "id": "p009",
+    "first_name": "Mary",
+    "last_name": "Johnson-Williams",
+    "birth_date": "1990-02-14",
+    "ssn": "888-99-0000",
+    "_note": "hyphenated name: known limitation, both parts capitalize correctly here"
+  },
+  {
+    "id": "p010",
+    "first_name": "Robert",
+    "last_name": "Taylor",
+    "birth_date": "1955-08-07",
+    "ssn": "999-00-1111",
+    "insurance_id": "BCB-12345",
+    "_note": "extra unexpected field: pipeline should pass it through without crashing"
+  }
 ]
