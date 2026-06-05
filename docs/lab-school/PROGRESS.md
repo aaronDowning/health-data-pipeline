@@ -15,10 +15,10 @@ Current Position (cold resume), Revisit Queue (spaced repetition), and Entries (
 
 > Where we resume next session. Updated at the LOG step every time.
 
-* Module: 1, Python ETL fundamentals
-* Lesson: 1.6, Test and harden (not yet started)
-* Stopped at: 1.5 complete. Wrote src/load.py (write_json, replace = idempotent) and src/pipeline.py (run wires E, T, L) and tests/test_pipeline.py; suite 10 passing. Live run produced clean, de identified output. Module 0 lesson 0.5 (docker-compose) deferred to Module 2.
-* Next up: Lesson 1.6, harden the pipeline with edge case tests and logging; finishes Module 1.
+* Module: 2, PostgreSQL warehouse and SQL depth
+* Lesson: 2.1, Postgres in Docker (not yet started)
+* Stopped at: Module 1 complete (1.1 to 1.6). End to end ETL pipeline with stage logging and 13 passing tests. Module 0 lesson 0.5 (docker-compose) still pending; will pick it up here in Module 2 when Postgres needs a container.
+* Next up: Lesson 2.1, run Postgres in Docker with a persistent volume (also covers the deferred 0.5 compose).
 
 ## Revisit Queue (spaced repetition)
 
@@ -32,7 +32,7 @@ Empty.
 | Module | Title | Status | Date done |
 |---|---|---|---|
 | 0 | Project setup and CI skeleton | 0.1 to 0.4 done; 0.5 deferred to Module 2 |  |
-| 1 | Python ETL fundamentals | In progress (1.1 to 1.5 done) |  |
+| 1 | Python ETL fundamentals | Done (1.1 to 1.6) | 2026-06-04 |
 | 2 | Postgres warehouse and SQL depth | Not started |  |
 | 3 | Synthetic healthcare data (Synthea/FHIR/REDCap) | Not started |  |
 | 3.5 | NoSQL document store (MongoDB) | Not started |  |
@@ -149,3 +149,13 @@ Status key: Not started, In progress, Done, Needs revisit.
 * Revisit later: none.
 * Key takeaway: "A replace based load makes the pipeline idempotent; run() chains E, T, L into one reproducible flow."
 * Next step: 1.6, test and harden to finish Module 1.
+
+### Module 1 · Lesson 1.6: Test and harden
+* Date(s): 2026-06-04
+* What we built: added stage logging to src/pipeline.py (record counts at extract, clean, de identify, load) and tests/test_edge_cases.py (empty input, missing names, missing PHI). Full suite 13 passing. Module 1 complete.
+* What clicked / went well: data bugs are silent corruptions, not crashes, so edge case tests matter; logging makes an unattended run observable.
+* What was hard / confusing: nothing.
+* Gate result: concept understood; explain back kept light due to time.
+* Revisit later: none.
+* Key takeaway: "Harden data logic with edge case tests for silent corruption, and add stage logging for observability."
+* Next step: Module 2, Postgres warehouse (also picks up the deferred 0.5 docker-compose).
