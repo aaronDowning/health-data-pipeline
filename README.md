@@ -1,12 +1,14 @@
 # health-data-pipeline
 
-An end to end, orchestrated, CI/CD deployed healthcare data pipeline built on synthetic FHIR data.
+A healthcare data pipeline built on synthetic FHIR shaped data, with a full learning curriculum covering the complete modern data engineering stack.
 
 ## What this is
-This project ingests synthetic FHIR data (Synthea), lands it raw in a document store, cleans and
-models it into a SQL warehouse, orchestrates it with Airflow, validates it with automated data
-quality gates, and deploys it through GitHub Actions. It is built in a homelab and mapped, tool for
-tool, to Microsoft Fabric and Azure equivalents.
+This project extracts synthetic patient records, cleans and de identifies them, and loads the results
+through a tested, idempotent ETL pipeline deployed with GitHub Actions CI. It is built in Python with
+pytest, a Makefile, and a sample dataset covering real world data problems (duplicates, nulls, PHI
+masking, edge case names). The curriculum in `docs/lab-school/` maps every tool to its Microsoft
+Fabric and Azure equivalent and covers the full stack from here to orchestration, distributed
+processing, and a healthcare data lakehouse.
 
 ## How it was built
 This repo is also a learning system. Rather than follow tutorials passively, I built an AI native,
